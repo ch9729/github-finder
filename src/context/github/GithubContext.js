@@ -12,14 +12,11 @@ export const GithubProvider = ({ children }) => {
   const searchUsers = (text) => {
     setLoading(true);
     const params = new URLSearchParams({ q: text });
-    const response = fetch(
-      `${process.env.REACT_APP_GITHUB_URL}/search/users?${params}`,
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`,
-        },
-      }
-    )
+    fetch(`${process.env.REACT_APP_GITHUB_URL}/search/users?${params}`, {
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setUsers(data.items);
@@ -32,14 +29,11 @@ export const GithubProvider = ({ children }) => {
   const getUser = (login) => {
     setLoading(true);
 
-    const response = fetch(
-      `${process.env.REACT_APP_GITHUB_URL}/users/${login}`,
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`,
-        },
-      }
-    )
+    fetch(`${process.env.REACT_APP_GITHUB_URL}/users/${login}`, {
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_GITHUB_TOKEN}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setUser(data);
@@ -61,7 +55,7 @@ export const GithubProvider = ({ children }) => {
       sort: "created",
       per_page: 10,
     });
-    const response = fetch(
+    fetch(
       `${process.env.REACT_APP_GITHUB_URL}/users/${login}/repos?${params}`,
       {
         headers: {
