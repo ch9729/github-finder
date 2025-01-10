@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+## GitHub Finder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- React.js로 제작된 애플리케이션으로, 사용자가 깃허브 유저를 검색하고, 프로필 정보와 리포지토리를 조회할 수 있는 기능을 제공
 
-## Available Scripts
+## 주요 기능
 
-In the project directory, you can run:
+- 유저 검색: 검색어를 통해 깃허브 유저를 검색.
+- 프로필 보기: 선택한 유저의 프로필 정보 확인 (이름, 위치, 팔로워 수 등).
+- 리포지토리 조회: 유저의 최근 10개 공개 리포지토리 목록 표시.
+- 에러 페이지: 존재하지 않는 페이지에 접근 시 404 페이지 표시.
+- 알림 기능: 입력값 검증 실패 시 경고 메시지 표시.
 
-### `npm start`
+## 컴포넌트
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. App.js
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 라우팅 설정
+- `GithubProvider`로 애플리케이션 전역 상태 관리
 
-### `npm test`
+2. GithubContext
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 깃 허브 데이터 상태 관리
+  - 검색된 유저 목록(`users`)
+  - 선택된 유저 프로필 정보(`user`)
+  - 선택된 유저의 레포지토리(`repos`)
+  - 로딩 상태(`loading`)
 
-### `npm run build`
+3. UserSearch
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 유저 검색 및 초기화 버튼 제공
+- 알림 메시지 표시를 위한 `handleAlert`함수 호출
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+4. UserResult
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 검색 결과로 반환된 유저 목록을 표시
 
-### `npm run eject`
+5. User
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- 선택한 유저의 상세 프로필과 레포지토리 목록 표시
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Example GIF](./public/example.gif)
